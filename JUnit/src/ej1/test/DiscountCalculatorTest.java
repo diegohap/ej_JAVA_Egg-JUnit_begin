@@ -15,11 +15,16 @@ class DiscountCalculatorTest {
     }
     @Test
     public void shouldCalculate10dicount(){
-        assertEquals(10, dc.calcularDescuent(10.0, 100.0));
+        assertEquals(10, dc.calcularDescuent(90.0, 100.0), 1);
         assertNotEquals(11, dc.calcularDescuent(10.0, 100.0));
     }
     @Test
     public void shouldNotDiscount(){
-        assertEquals(0, dc.calcularDescuent(0.0, 100.0));
+        assertEquals(0, dc.calcularDescuent(100.0, 100.0));
+    }
+    @Test
+    public void shouldNotDiscountMoreThanLimitDiscount(){
+        assertTrue(dc.DESCUENTO_MAXIMO > dc.calcularDescuent(60.0, 100.0));
+        assertEquals(dc.DESCUENTO_MAXIMO, dc.calcularDescuent(40.0, 100.0));
     }
 }
