@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DiscountCalculatorTest {
 
-    DiscountCalculator dc;
+    private DiscountCalculator dc;
 
     @BeforeEach
     public void beforeEachTest(){
