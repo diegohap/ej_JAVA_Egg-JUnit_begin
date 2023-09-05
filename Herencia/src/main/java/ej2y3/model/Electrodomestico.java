@@ -1,5 +1,14 @@
-package ej2.model;
+package ej2y3.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.util.Scanner;
+
+@Getter
+@Setter
+@ToString
 public class Electrodomestico {
     private double precioBase;
     private String color;
@@ -44,9 +53,26 @@ public class Electrodomestico {
         this.color = "blanco"; // Color blanco por defecto si es incorrecto
     }
 
-    public void crearElectrodomestico() {
-        // Aquí puedes solicitar información al usuario para llenar los atributos
-        // No olvides llamar a comprobarColor() y comprobarConsumoEnergetico() después de obtener los valores
+    public static Electrodomestico crearElectrodomestico() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Creación de Electrodoméstico");
+        System.out.print("Ingrese el precio: ");
+        double precio = scanner.nextDouble();
+        System.out.print("Ingrese el peso: ");
+        double peso = scanner.nextDouble();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        System.out.print("Ingrese el color: ");
+        String color = scanner.nextLine();
+        System.out.print("Ingrese el consumo energético (A-F): ");
+        char consumo = scanner.next().charAt(0);
+
+        Electrodomestico electrodomestico = new Electrodomestico(precio, color, consumo, peso);
+        electrodomestico.comprobarColor(color);
+        electrodomestico.comprobarConsumoEnergetico(consumo);
+
+        return electrodomestico;
     }
 
     public double precioFinal() {
