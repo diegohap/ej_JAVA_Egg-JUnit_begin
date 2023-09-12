@@ -33,7 +33,7 @@ public class Electrodomestico {
 
     // Métodos getters y setters (omitiendo setters para consumoEnergetico)
 
-    public void comprobarConsumoEnergetico(char letra) {
+    private void comprobarConsumoEnergetico(char letra) {
         if (letra >= 'A' && letra <= 'F') {
             this.consumoEnergetico = letra;
         } else {
@@ -41,7 +41,7 @@ public class Electrodomestico {
         }
     }
 
-    public void comprobarColor(String color) {
+    private void comprobarColor(String color) {
         String[] coloresDisponibles = {"blanco", "negro", "rojo", "azul", "gris"};
         color = color.toLowerCase();
         for (String c : coloresDisponibles) {
